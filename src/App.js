@@ -9,7 +9,7 @@ import { Collapse } from 'antd';
 const { Header, Content, Sider } = Layout;
 const items1 = ['1', '2', '3'].map((key) => ({
   key,
-  label: `nav ${key}`,
+  label: `na ${key}`,
 }));
 const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
   const key = String(index + 1);
