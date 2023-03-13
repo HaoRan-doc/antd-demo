@@ -9,12 +9,12 @@ import { Collapse } from 'antd';
 const { Header, Content, Sider } = Layout;
 const items1 = ['1', '2', '3'].map((key) => ({
   key,
-  label: `nav ${key}`,
+  label: `naV ${key}`,
 }));
 const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
   const key = String(index + 1);
   return {
-    key: `sub${key}`,
+    key: `su${key}`,
     icon: React.createElement(icon),
     label: `subnav ${key}`,
     children: new Array(4).fill(null).map((_, j) => {
