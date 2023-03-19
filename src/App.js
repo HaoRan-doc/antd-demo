@@ -3,16 +3,15 @@ import {
   NotificationOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme, Carousel, Collapse } from 'antd';
+import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import React from 'react';
-import MyFirstComponent from './components/my-first-component';
-import MyTwoComponent from './components/my-two-component';
+import { Link, Route, Routes } from 'react-router-dom';
+
+import Class1 from './pages/class1';
+import Class2 from './pages/class2';
 
 const { Header, Content, Sider } = Layout;
-const items1 = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
+
 const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
   (icon, index) => {
     const key = String(index + 1);
@@ -25,47 +24,29 @@ const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
         return {
           key: subKey,
           label: `option${subKey}`,
+          link: <Link to="/class1" />,
         };
       }),
     };
   }
 );
-const contentStyle = {
-  margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
-const { Panel } = Collapse;
-
-const text = `
-  A dog is a type of domesticated animal.
-  Known for its loyalty and faithfulness,
-  it can be found as a welcome guest in many households across the world.
-`;
 
 const App = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
-  const onCollapseChange = (key) => {
-    console.log(key);
-  };
   return (
     <Layout>
       <Header className="header">
         <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['2']}
-          items={items1}
-        />
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+          <Menu.Item key="1">
+            <Link to="/class1">class1</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/class2">class2</Link>
+          </Menu.Item>
+        </Menu>
       </Header>
       <Layout>
         <Sider
@@ -107,36 +88,10 @@ const App = () => {
               background: colorBgContainer,
             }}
           >
-            {/* <Carousel afterChange={onChange}>
-              <div>
-                <h3 style={contentStyle}>1</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>2</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>3</h3>
-              </div>
-              <div>
-                <h3 style={contentStyle}>4</h3>
-              </div>
-            </Carousel>
-            <div style={{ height: 100 }}></div>
-            <Collapse defaultActiveKey={['1']} onChange={onChange}>
-              <Panel header="This is panel header 1" key="1">
-                <p>{text}</p>
-              </Panel>
-              <Panel header="This is panel header 2" key="2">
-                <p>{text}</p>
-              </Panel>
-              <Panel header="This is panel header 3" key="3">
-                <p>{text}</p>
-              </Panel>
-            </Collapse> */}
-            <MyFirstComponent propsName={'propsName'} />
-            <MyTwoComponent propsName={'propsName 1'} />
-            <MyTwoComponent propsName={'propsName 2'} />
-            <MyTwoComponent propsName={'propsName 3'} />
+            <Routes>
+              <Route path="/class1" Component={Class1} />
+              <Route path="/class2" Component={Class2} />
+            </Routes>
           </Content>
         </Layout>
       </Layout>

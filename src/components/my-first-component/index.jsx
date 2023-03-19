@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 class MyFirstComponent extends Component {
   constructor(props) {
     super(props);
-   state = {
-      name: 'My First Component',
-    };
   }
+
+  state = {
+    name: 'My First Component',
+  };
 
   /**
    * react生命周期 挂载前
@@ -50,23 +51,22 @@ class MyFirstComponent extends Component {
   }
 
   render() {
-  console.log("render");
-    return(
-    <div>
-        <div 
-        onClick={()=> {
+    console.log('render');
+    return (
+      <div>
+        <div
+          onClick={() => {
             this.setState({
-                name : 'My First Component Update',
+              name: 'My First Component Update',
             });
-        }}
+          }}
         >
-        点我
-    </div>
-     <div>{this.state.name}</div>
-     <div>{this.props.props}</div>
-     </div>
-     );
-     
+          点我
+        </div>
+        <div>{this.state.name}</div>
+        <div>{this.props.propsName}</div>
+      </div>
+    );
   }
 }
 
