@@ -1,3 +1,4 @@
+
 import {
   LaptopOutlined,
   NotificationOutlined,
@@ -9,6 +10,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 import Class1 from './pages/class1';
 import Class2 from './pages/class2';
+import './App.css';
 
 const { Header, Content, Sider } = Layout;
 
