@@ -17,6 +17,7 @@ import Calendar from "./pages/calendar";
 import "./App.css";
 import Class3 from "./pages/class3";
 import Class4 from "./pages/class4";
+import Class5 from "./pages/class5";
 
 const { Header, Content, Sider } = Layout;
 
@@ -77,6 +78,9 @@ const App = () => {
           <Menu.Item key="4">
             <Link to="/class4">Class4</Link>
           </Menu.Item>
+          <Menu.Item key="5">
+            <Link to="/class5">class5</Link>
+          </Menu.Item>
         </Menu>
       </Header>
       <Layout>
@@ -111,6 +115,7 @@ const App = () => {
               <Route path="/calendar" Component={Calendar} />
               <Route path="/class3" Component={Class3} />
               <Route path="/class4" Component={Class4} />
+              <Route path="/class5" Component={Class5} />
             </Routes>
 
             {/* <MyFirstComponent /> */}
